@@ -7,7 +7,7 @@ part 'device_update_model.g.dart';
 class DeviceUpdateModel {
   final String name;
   @JsonKey(name: 'is_active')
-  final String isActive; // API expects string "true" or "false"
+  final bool isActive; // API expects string "true" or "false"
   final double? longitude;
   final double? latitude;
   final String? description;

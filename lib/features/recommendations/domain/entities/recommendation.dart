@@ -10,7 +10,7 @@ class Recommendation extends Equatable {
   final String message;
   final String priority; // low, medium, high
   final String status; // pending, acknowledged, dismissed
-  final List<dynamic>? metadata;
+  final Map<String, dynamic>? metadata;
   final int? acknowledgedAt;
   final int? dismissedAt;
 

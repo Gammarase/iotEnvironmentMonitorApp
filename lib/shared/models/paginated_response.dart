@@ -62,11 +62,11 @@ class PaginationLinks extends Equatable {
 /// Pagination metadata
 class PaginationMeta extends Equatable {
   final int currentPage;
-  final int from;
+  final int? from;
   final int lastPage;
   final String path;
   final int perPage;
-  final int to;
+  final int? to;
   final int total;
 
   const PaginationMeta({
@@ -82,11 +82,11 @@ class PaginationMeta extends Equatable {
   factory PaginationMeta.fromJson(Map<String, dynamic> json) {
     return PaginationMeta(
       currentPage: json['current_page'] as int,
-      from: json['from'] as int,
+      from: json['from'] as int?,
       lastPage: json['last_page'] as int,
       path: json['path'] as String,
       perPage: json['per_page'] as int,
-      to: json['to'] as int,
+      to: json['to'] as int?,
       total: json['total'] as int,
     );
   }

@@ -9,7 +9,7 @@ part of 'device_update_model.dart';
 DeviceUpdateModel _$DeviceUpdateModelFromJson(Map<String, dynamic> json) =>
     DeviceUpdateModel(
       name: json['name'] as String,
-      isActive: json['is_active'] as String,
+      isActive: json['is_active'] as bool,
       longitude: (json['longitude'] as num?)?.toDouble(),
       latitude: (json['latitude'] as num?)?.toDouble(),
       description: json['description'] as String?,

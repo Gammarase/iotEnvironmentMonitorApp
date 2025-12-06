@@ -16,7 +16,7 @@ RecommendationModel _$RecommendationModelFromJson(Map<String, dynamic> json) =>
       message: json['message'] as String,
       priority: json['priority'] as String,
       status: json['status'] as String,
-      metadata: json['metadata'] as List<dynamic>?,
+      metadata: json['metadata'] as Map<String, dynamic>?,
       modelAcknowledgedAt: (json['acknowledged_at'] as num?)?.toInt(),
       modelDismissedAt: (json['dismissed_at'] as num?)?.toInt(),
     );

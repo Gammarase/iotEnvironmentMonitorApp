@@ -126,7 +126,7 @@ class DevicesRepositoryImpl implements DevicesRepository {
     try {
       final model = DeviceUpdateModel(
         name: name,
-        isActive: isActive.toString(),
+        isActive: isActive,
         latitude: latitude,
         longitude: longitude,
         description: description,
