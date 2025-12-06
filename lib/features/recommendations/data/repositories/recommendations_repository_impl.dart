@@ -24,7 +24,12 @@ class RecommendationsRepositoryImpl implements RecommendationsRepository {
 
     try {
       final result = await remoteDataSource.getRecommendations(page: page);
-      return Right(result);
+      final recommendations = PaginatedResponse<Recommendation>(
+        data: result.data.map((model) => model.toEntity()).toList(),
+        links: result.links,
+        meta: result.meta,
+      );
+      return Right(recommendations);
     } on ServerException catch (e) {
       return Left(ServerFailure(e.message));
     } on UnauthorizedException {
@@ -42,7 +47,12 @@ class RecommendationsRepositoryImpl implements RecommendationsRepository {
 
     try {
       final result = await remoteDataSource.getPendingRecommendations(page: page);
-      return Right(result);
+      final recommendations = PaginatedResponse<Recommendation>(
+        data: result.data.map((model) => model.toEntity()).toList(),
+        links: result.links,
+        meta: result.meta,
+      );
+      return Right(recommendations);
     } on ServerException catch (e) {
       return Left(ServerFailure(e.message));
     } on UnauthorizedException {
