@@ -10,22 +10,22 @@ SensorReadingModel _$SensorReadingModelFromJson(Map<String, dynamic> json) =>
     SensorReadingModel(
       id: (json['id'] as num).toInt(),
       modelDeviceId: (json['device_id'] as num).toInt(),
-      modelReadAt: (json['read_at'] as num).toInt(),
-      temperature: (json['temperature'] as num).toDouble(),
-      humidity: (json['humidity'] as num).toDouble(),
+      modelReadAt: (json['reading_timestamp'] as num).toInt(),
+      modelTvoc: (json['tvoc_ppm'] as num).toDouble(),
+      modelTemperature: Converters.decimalStringToFloat(json['temperature']),
+      modelHumidity: Converters.decimalStringToFloat(json['humidity']),
       light: (json['light'] as num).toDouble(),
       noise: (json['noise'] as num).toDouble(),
-      tvoc: (json['tvoc'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$SensorReadingModelToJson(SensorReadingModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'temperature': instance.temperature,
-      'humidity': instance.humidity,
       'light': instance.light,
       'noise': instance.noise,
-      'tvoc': instance.tvoc,
       'device_id': instance.modelDeviceId,
-      'read_at': instance.modelReadAt,
+      'reading_timestamp': instance.modelReadAt,
+      'tvoc_ppm': instance.modelTvoc,
+      'temperature': instance.modelTemperature,
+      'humidity': instance.modelHumidity,
     };

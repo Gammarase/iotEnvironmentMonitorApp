@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import '../../../../core/utils/converters.dart';
 import '../../domain/entities/sensor_reading.dart';
 
 part 'sensor_reading_model.g.dart';
@@ -7,21 +8,31 @@ part 'sensor_reading_model.g.dart';
 class SensorReadingModel extends SensorReading {
   @JsonKey(name: 'device_id')
   final int modelDeviceId;
-  @JsonKey(name: 'read_at')
+  @JsonKey(name: 'reading_timestamp')
   final int modelReadAt;
+  @JsonKey(name: 'tvoc_ppm')
+  final double modelTvoc;
+  @JsonKey(name: 'temperature', fromJson: Converters.decimalStringToFloat)
+  final double modelTemperature;
+  @JsonKey(name: 'humidity', fromJson: Converters.decimalStringToFloat)
+  final double modelHumidity;
 
   const SensorReadingModel({
     required super.id,
     required this.modelDeviceId,
     required this.modelReadAt,
-    required super.temperature,
-    required super.humidity,
+    required this.modelTvoc,
+    required this.modelTemperature,
+    required this.modelHumidity,
     required super.light,
     required super.noise,
-    required super.tvoc,
+
   }) : super(
           deviceId: modelDeviceId,
           readAt: modelReadAt,
+          tvoc: modelTvoc,
+          temperature: modelTemperature,
+          humidity: modelHumidity
         );
 
   factory SensorReadingModel.fromJson(Map<String, dynamic> json) =>
