@@ -142,7 +142,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                         padding: EdgeInsets.all(32),
                         child: Center(child: LoadingIndicator()),
                       )
-                    else if (statisticsProvider.historyReadings.isEmpty)
+                    else if (statisticsProvider.historyReadings.length < 2)
                       const Padding(
                         padding: EdgeInsets.all(16),
                         child: EmptyStateWidget(

@@ -96,7 +96,7 @@ class SensorChart extends StatelessWidget {
     final values = spots.map((spot) => spot.y).toList();
     final minY = values.reduce((a, b) => a < b ? a : b);
     final maxY = values.reduce((a, b) => a > b ? a : b);
-    final yRange = maxY - minY;
+    final yRange = (maxY - minY) > 0 ? maxY - minY : 1;
     final yPadding = yRange * 0.1; // 10% padding
 
     return Card(
